@@ -1,5 +1,7 @@
 package Testcases;
+
 import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -7,14 +9,18 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ChildPages.IndexPage;
-import ChildPages.SignInPage;
+import ChildPages.MyAccountPage;
+import ChildPages.SignUpAccountDetail;
+import ChildPages.SignUpAnAccount;
 import customizedLibrary.EnviromentSetting;
 import customizedLibrary.PropertyUtility;
 
-public class TestLogin {
+public class TC03_TestSignUpAnAccount  {
 	WebDriver driver;	
 	IndexPage indexPage;
-	SignInPage signInpage;
+	SignUpAnAccount signUpAccountPage;
+	SignUpAccountDetail signUpDetailPage;
+	MyAccountPage myAccountPage;
 	
 	
 	@BeforeTest
@@ -26,13 +32,16 @@ public class TestLogin {
 	}
 	
 	@Test
-	public void loginToAccount() {
+	public void signUpNewAccount() {
 		System.out.println("test starting ========================");
 		indexPage = new IndexPage(driver);
 		indexPage.clickOnSignInLink();
-		signInpage = new SignInPage(driver);
-		signInpage.signInAccount("user10011@gmail.com", "123456789");
-		Assert.assertTrue(signInpage.isLoginSuccessful());
+		signUpAccountPage = new SignUpAnAccount(driver);
+		signUpAccountPage.createNewAccount("user10011@gmail.com");
+		signUpDetailPage = new SignUpAccountDetail(driver);
+		signUpDetailPage.createAnAccount(true, "Dinh", "Nguyen", "123456789", "10", "3", "1995", false, false, "David", "Smart", "Amdocs", "12 cong quynh", "36 le lai", "Ho chi minh", "2", "66006", "United States", "testing", "8572073900", "09876876876", "user11@gmail.com");
+		myAccountPage= new MyAccountPage(driver);
+		Assert.assertTrue(myAccountPage.isCreateAccountSuccessfully());
 	}
 	
 	@AfterTest
