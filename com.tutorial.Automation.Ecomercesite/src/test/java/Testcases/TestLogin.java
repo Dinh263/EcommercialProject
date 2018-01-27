@@ -1,5 +1,5 @@
 package Testcases;
-
+import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ChildPages.IndexPage;
 import ChildPages.SignInPage;
+import customizedLibrary.EnviromentSetting;
+import customizedLibrary.PropertyUtility;
 
 public class TestLogin {
 	WebDriver driver;	
@@ -16,9 +18,10 @@ public class TestLogin {
 	
 	
 	@BeforeTest
-	public void OpenURL() {
-		setConfigurationEnv();
-		driver.get("http://automationpractice.com/index.php");
+	public void OpenURL() throws IOException {
+		EnviromentSetting.setChromeDriverPath();
+		driver = new ChromeDriver();
+		driver.get(PropertyUtility.getBaseUrl());
 		driver.manage().window().maximize();
 	}
 	
@@ -35,12 +38,8 @@ public class TestLogin {
 	@AfterTest
 	public void closeBrowser() {
 		System.out.println("test done");
-		//driver.quit();
+		driver.quit();
 	}
 	
-	private void setConfigurationEnv() {
-		String path = System.getProperty("user.dir");
-		System.setProperty("webdriver.chrome.driver", path + "/src/test/resources/chromedriver.exe" );
-		driver = new ChromeDriver();
-	}
+	
 }

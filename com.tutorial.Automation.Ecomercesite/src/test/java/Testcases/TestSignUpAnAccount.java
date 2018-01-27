@@ -1,5 +1,7 @@
 package Testcases;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -10,6 +12,8 @@ import ChildPages.IndexPage;
 import ChildPages.MyAccountPage;
 import ChildPages.SignUpAccountDetail;
 import ChildPages.SignUpAnAccount;
+import customizedLibrary.EnviromentSetting;
+import customizedLibrary.PropertyUtility;
 
 public class TestSignUpAnAccount  {
 	WebDriver driver;	
@@ -20,9 +24,10 @@ public class TestSignUpAnAccount  {
 	
 	
 	@BeforeTest
-	public void OpenURL() {
-		setConfigurationEnv();
-		driver.get("http://automationpractice.com/index.php");
+	public void OpenURL() throws IOException {
+		EnviromentSetting.setChromeDriverPath();
+		driver = new ChromeDriver();
+		driver.get(PropertyUtility.getBaseUrl());
 		driver.manage().window().maximize();
 	}
 	
@@ -45,9 +50,5 @@ public class TestSignUpAnAccount  {
 		driver.quit();
 	}
 	
-	private void setConfigurationEnv() {
-		String path = System.getProperty("user.dir");
-		System.setProperty("webdriver.chrome.driver", path + "/src/test/resources/chromedriver.exe" );
-		driver = new ChromeDriver();
-	}
+	
 }
