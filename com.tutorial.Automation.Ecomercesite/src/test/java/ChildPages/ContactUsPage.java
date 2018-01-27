@@ -31,7 +31,7 @@ public class ContactUsPage extends IndexPage {
 	}
 	
 	private void selectSubjectHeader(String subject) {
-		selectValueFromDropDown(ddownSubjectHeader, subject);
+		selectTextFromDropDown(ddownSubjectHeader, subject);
 	}
 	
 	private void inputEmail(String email) {
@@ -60,6 +60,15 @@ public class ContactUsPage extends IndexPage {
 		inputEmail(email);
 		inputOrderId(orderId);
 		attachFile(fileName);
+		inputMessaage(message);
+		clickSubmitButton();		
+	}
+	
+	public void sendARequest(String subject, String email, String orderId, String message)
+	{
+		selectSubjectHeader(subject);
+		inputEmail(email);
+		inputOrderId(orderId);
 		inputMessaage(message);
 		clickSubmitButton();		
 	}
