@@ -33,7 +33,7 @@ public class SignUpAccountDetail extends IndexPage {
 	@FindBy(name="years")
 	WebElement ddListYears;
 	
-	@FindBy(id="newsletter")
+	@FindBy(xpath="//div[@id='uniform-newsletter']/span/input")
 	WebElement chkboxNewLetter;
 	
 	@FindBy(id="optin")
@@ -113,10 +113,10 @@ public class SignUpAccountDetail extends IndexPage {
 		selectValueFromDropDown(ddListMonths, month);
 		selectValueFromDropDown(ddListYears, year);
 		if(newletter==true) {
-			clickOnElement(chkboxNewLetter);
+			clickOnElementWithoutWait(chkboxNewLetter);
 		}
 		if(receiveoffer==true) {
-			clickOnElement(chkboxOffer);
+			clickOnElementWithoutWait(chkboxOffer);
 		}
 	}
 	
@@ -171,7 +171,11 @@ public class SignUpAccountDetail extends IndexPage {
 			String mobilephone,
 			String aliasEmail) {
 		inputPersonalInformation(gender, personalFirstName, personalLastName, password, day, month, year, newletter, receiveoffer);
-		inputPersonalAddress(addFirstName, addLastName, company, address1, address2, city, state, zipcode, country, additionalInfo, phone, mobilephone, aliasEmail);
+		//inputPersonalAddress(addFirstName, addLastName, company, address1, address2, city, state, zipcode, country, additionalInfo, phone, mobilephone, aliasEmail);
+	}
+	
+	public void signuptesting() {
+		chkboxNewLetter.click();
 	}
 	
 	

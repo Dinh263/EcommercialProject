@@ -30,6 +30,10 @@ public class BasePage {
 		element.click();
 	}
 	
+	protected void clickOnElementWithoutWait(WebElement element) {
+		element.click();
+	}
+	
 	protected void selectTextFromDropDown(WebElement element, String text) {
 		//waitForElement(element);
 		Select ddownList = new Select(element);

@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28994" started-at="2018-01-27T13:43:44Z" finished-at="2018-01-27T13:44:13Z">
+  <suite name="Default suite" duration-ms="38022" started-at="2018-01-27T17:50:15Z" finished-at="2018-01-27T17:50:54Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28994" started-at="2018-01-27T13:43:44Z" finished-at="2018-01-27T13:44:13Z">
-      <class name="Testcases.TC02_TestSendARequest">
-        <test-method status="PASS" signature="OpenURL()[pri:0, instance:Testcases.TC02_TestSendARequest@7d9d1a19]" name="OpenURL" is-config="true" duration-ms="23818" started-at="2018-01-27T05:43:44Z" finished-at="2018-01-27T05:44:08Z">
+    <test name="Default test" duration-ms="38022" started-at="2018-01-27T17:50:15Z" finished-at="2018-01-27T17:50:54Z">
+      <class name="Testcases.TC03_TestSignUpAnAccount">
+        <test-method status="PASS" signature="OpenURL()[pri:0, instance:Testcases.TC03_TestSignUpAnAccount@7d9d1a19]" name="OpenURL" is-config="true" duration-ms="22502" started-at="2018-01-27T09:50:15Z" finished-at="2018-01-27T09:50:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenURL -->
-        <test-method status="PASS" signature="sendARequest()[pri:0, instance:Testcases.TC02_TestSendARequest@7d9d1a19]" name="sendARequest" duration-ms="4413" started-at="2018-01-27T05:44:08Z" finished-at="2018-01-27T05:44:13Z">
+        <test-method status="PASS" signature="signUpNewAccount()[pri:0, instance:Testcases.TC03_TestSignUpAnAccount@7d9d1a19]" name="signUpNewAccount" duration-ms="15494" started-at="2018-01-27T09:50:38Z" finished-at="2018-01-27T09:50:54Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- sendARequest -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:Testcases.TC02_TestSendARequest@7d9d1a19]" name="closeBrowser" is-config="true" duration-ms="730" started-at="2018-01-27T05:44:13Z" finished-at="2018-01-27T05:44:13Z">
+        </test-method> <!-- signUpNewAccount -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:Testcases.TC03_TestSignUpAnAccount@7d9d1a19]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2018-01-27T09:50:54Z" finished-at="2018-01-27T09:50:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- Testcases.TC02_TestSendARequest -->
+      </class> <!-- Testcases.TC03_TestSignUpAnAccount -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
