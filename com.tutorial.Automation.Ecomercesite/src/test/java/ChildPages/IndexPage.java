@@ -14,6 +14,13 @@ public class IndexPage extends BasePage {
 	@FindBy(xpath="//a[@title='Log in to your customer account']")
 	WebElement lnkSignIn;
 	
+	@FindBy(name="search_query")
+	WebElement txtSearch;
+	
+	
+	@FindBy(name="submit_search")
+	WebElement btnSubmitSearch;
+	
 	
 	public IndexPage(WebDriver driver) {
 		super(driver);
@@ -27,6 +34,11 @@ public class IndexPage extends BasePage {
 	
 	public void clickOnSignInLink() {
 		clickOnElement(lnkSignIn);
+	}
+	
+	public void searchItem(String searchItem) {
+		enterTextOnElement(txtSearch, searchItem);
+		clickOnElement(btnSubmitSearch);
 	}
 	
 	

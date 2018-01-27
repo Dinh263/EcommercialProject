@@ -1,5 +1,8 @@
 package BasePage;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -53,6 +56,30 @@ public class BasePage {
 	
 	protected boolean pageShouldContainsText(String text) {
 		return driver.getPageSource().contains(text);
+	}
+	
+	protected boolean pageShouldContainsElement(WebElement element) {
+		boolean exist = false;
+		try {
+			waitForElement(element);
+			exist=true;
+		}catch(NoSuchElementException e) {
+			System.out.println("Element not found");
+		}
+		return exist;
+	}
+	
+	protected boolean pageShouldContainsElements(List<WebElement> elements) {
+		boolean exist = false;
+		try {
+			for(WebElement e : elements) {
+				waitForElement(e);
+			}
+			exist=true;
+		}catch(NoSuchElementException e) {
+			System.out.println("Element not found");
+		}
+		return exist;
 	}
 
 }
