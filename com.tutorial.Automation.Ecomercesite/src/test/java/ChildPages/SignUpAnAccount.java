@@ -14,14 +14,7 @@ public class SignUpAnAccount extends IndexPage {
 	@FindBy(id="SubmitCreate")
 	WebElement btnSubmit;
 	
-	@FindBy(name="email")
-	WebElement txtEmailLogin;
 	
-	@FindBy(name="passwd")
-	WebElement txtPassword;
-	
-	@FindBy(name="SubmitLogin")
-	WebElement btnLogin;
 	
 	
 	public SignUpAnAccount(WebDriver driver) {

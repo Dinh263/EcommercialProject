@@ -20,7 +20,8 @@ public class BasePage {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	protected void enterTextOnElement(WebElement element, String text) {
-		waitForElement(element);
+		//waitForElement(element);
+		element.clear();
 		element.sendKeys(text);
 	}
 	
@@ -29,10 +30,16 @@ public class BasePage {
 		element.click();
 	}
 	
+	protected void selectTextFromDropDown(WebElement element, String text) {
+		//waitForElement(element);
+		Select ddownList = new Select(element);
+		ddownList.selectByVisibleText(text);
+	}
+	
 	protected void selectValueFromDropDown(WebElement element, String value) {
 		//waitForElement(element);
 		Select ddownList = new Select(element);
-		ddownList.selectByVisibleText(value);
+		ddownList.selectByValue(value);
 	}
 	
 	protected void uploadFile(WebElement element, String fileName) {

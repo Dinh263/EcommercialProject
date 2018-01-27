@@ -140,11 +140,12 @@ public class SignUpAccountDetail extends IndexPage {
 		enterTextOnElement(txtCity, city);
 		selectValueFromDropDown(ddListState, state);
 		enterTextOnElement(txtPostcode, zipcode);
-		selectValueFromDropDown(ddListCountry, country);
+		selectTextFromDropDown(ddListCountry, country);
 		enterTextOnElement(txtOther, additionalInfo);
 		enterTextOnElement(txtHomePhone, phone);
 		enterTextOnElement(txtMobilePhone, mobilephone);
 		enterTextOnElement(txtAddressAlias, aliasEmail);
+		clickOnElement(btnSubmitAccount);
 	}
 	
 	public void createAnAccount(boolean gender, 

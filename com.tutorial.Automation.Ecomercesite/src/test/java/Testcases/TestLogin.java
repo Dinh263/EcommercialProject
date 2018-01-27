@@ -7,16 +7,12 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ChildPages.IndexPage;
-import ChildPages.MyAccountPage;
-import ChildPages.SignUpAccountDetail;
-import ChildPages.SignUpAnAccount;
+import ChildPages.SignInPage;
 
-public class TestSignUpAnAccount  {
+public class TestLogin {
 	WebDriver driver;	
 	IndexPage indexPage;
-	SignUpAnAccount signUpAccountPage;
-	SignUpAccountDetail signUpDetailPage;
-	MyAccountPage myAccountPage;
+	SignInPage signInpage;
 	
 	
 	@BeforeTest
@@ -27,22 +23,19 @@ public class TestSignUpAnAccount  {
 	}
 	
 	@Test
-	public void signUpNewAccount() {
+	public void loginToAccount() {
 		System.out.println("test starting ========================");
 		indexPage = new IndexPage(driver);
 		indexPage.clickOnSignInLink();
-		signUpAccountPage = new SignUpAnAccount(driver);
-		signUpAccountPage.createNewAccount("user10011@gmail.com");
-		signUpDetailPage = new SignUpAccountDetail(driver);
-		signUpDetailPage.createAnAccount(true, "Dinh", "Nguyen", "123456789", "10", "3", "1995", false, false, "David", "Smart", "Amdocs", "12 cong quynh", "36 le lai", "Ho chi minh", "2", "66006", "United States", "testing", "8572073900", "09876876876", "user11@gmail.com");
-		myAccountPage= new MyAccountPage(driver);
-		Assert.assertTrue(myAccountPage.isCreateAccountSuccessfully());
+		signInpage = new SignInPage(driver);
+		signInpage.signInAccount("user10011@gmail.com", "123456789");
+		Assert.assertTrue(signInpage.isLoginSuccessful());
 	}
 	
 	@AfterTest
 	public void closeBrowser() {
 		System.out.println("test done");
-		driver.quit();
+		//driver.quit();
 	}
 	
 	private void setConfigurationEnv() {
