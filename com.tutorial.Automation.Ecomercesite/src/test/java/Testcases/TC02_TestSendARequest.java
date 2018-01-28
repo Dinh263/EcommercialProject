@@ -13,12 +13,13 @@ import org.testng.annotations.Test;
 import ChildPages.ContactUsPage;
 import ChildPages.IndexPage;
 import DataMapping.DataTC02_TestSendARequest;
+import TestBase.TestBase;
 import customizedLibrary.EnviromentSetting;
 import customizedLibrary.PropertyUtility;
 
-public class TC02_TestSendARequest {
+public class TC02_TestSendARequest extends TestBase {
 	
-	WebDriver driver;	
+
 	IndexPage indexPage;
 	ContactUsPage contactUsPage;
 	

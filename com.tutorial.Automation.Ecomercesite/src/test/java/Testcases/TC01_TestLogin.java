@@ -9,11 +9,12 @@ import org.testng.annotations.Test;
 import ChildPages.IndexPage;
 import ChildPages.SignInPage;
 import DataMapping.DataTC01_TestLogin;
+import TestBase.TestBase;
 import customizedLibrary.EnviromentSetting;
 import customizedLibrary.PropertyUtility;
 
-public class TC01_TestLogin {
-	WebDriver driver;	
+public class TC01_TestLogin extends TestBase {
+	
 	IndexPage indexPage;
 	SignInPage signInpage;
 	

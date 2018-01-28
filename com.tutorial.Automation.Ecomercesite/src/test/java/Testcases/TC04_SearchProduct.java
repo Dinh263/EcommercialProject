@@ -12,11 +12,12 @@ import org.testng.annotations.Test;
 import ChildPages.IndexPage;
 import ChildPages.ResultSearchPage;
 import DataMapping.DataTC04_SearchProduct;
+import TestBase.TestBase;
 import customizedLibrary.EnviromentSetting;
 import customizedLibrary.PropertyUtility;
 
-public class TC04_SearchProduct {
-	WebDriver driver;	
+public class TC04_SearchProduct extends TestBase {
+
 	IndexPage indexPage;
 	ResultSearchPage resultSearchPage;
 	

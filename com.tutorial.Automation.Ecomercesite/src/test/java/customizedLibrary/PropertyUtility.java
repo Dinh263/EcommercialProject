@@ -31,7 +31,7 @@ public class PropertyUtility {
 	}
 	
 	/**
-	 * this function is used for gettign the value user.dir in the property file
+	 * this function is used for getting the value user.dir in the property file
 	 * @return
 	 * @throws IOException
 	 */
@@ -43,6 +43,16 @@ public class PropertyUtility {
 	public static String getBaseUrl() throws IOException {
 		Properties prop=PropertyUtility.getProperty();
 		return prop.getProperty("baseUrl");
+	}
+	
+	public static String getReportpath() throws IOException {
+		Properties prop=PropertyUtility.getProperty();
+		return System.getProperty("user.dir")+prop.getProperty("reportPath");
+	}
+	
+	public static String getScreenshotPath() throws IOException {
+		Properties prop=PropertyUtility.getProperty();
+		return System.getProperty("user.dir")+prop.getProperty("screenshot");
 	}
 
 }

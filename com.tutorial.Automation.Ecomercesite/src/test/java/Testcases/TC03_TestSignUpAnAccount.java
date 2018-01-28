@@ -12,11 +12,12 @@ import ChildPages.IndexPage;
 import ChildPages.MyAccountPage;
 import ChildPages.SignUpAccountDetail;
 import ChildPages.SignUpAnAccount;
+import TestBase.TestBase;
 import customizedLibrary.EnviromentSetting;
 import customizedLibrary.PropertyUtility;
 
-public class TC03_TestSignUpAnAccount  {
-	WebDriver driver;	
+public class TC03_TestSignUpAnAccount extends TestBase {
+	
 	IndexPage indexPage;
 	SignUpAnAccount signUpAccountPage;
 	SignUpAccountDetail signUpDetailPage;
