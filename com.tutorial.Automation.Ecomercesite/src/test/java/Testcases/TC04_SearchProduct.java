@@ -11,8 +11,7 @@ import org.testng.annotations.Test;
 
 import ChildPages.IndexPage;
 import ChildPages.ResultSearchPage;
-import ChildPages.SignInPage;
-import DataMapping.DataTC01_TestLogin;
+import DataMapping.DataTC04_SearchProduct;
 import customizedLibrary.EnviromentSetting;
 import customizedLibrary.PropertyUtility;
 
@@ -21,11 +20,11 @@ public class TC04_SearchProduct {
 	IndexPage indexPage;
 	ResultSearchPage resultSearchPage;
 	
+	DataTC04_SearchProduct data;
 	
-	
-	
-	String emailLogin;
-	String passwordLogin;
+	String itemSearch;
+	String sourceImage;
+	String itemPrice;
 	
 	
 	@BeforeTest
@@ -34,16 +33,16 @@ public class TC04_SearchProduct {
 		driver = new ChromeDriver();
 		driver.get(PropertyUtility.getBaseUrl());
 		driver.manage().window().maximize();
-		
+		initialDataForTest();
 	}
 	
 	@Test
 	public void searchAProduct() {
 		System.out.println("test starting ========================");
 		indexPage = new IndexPage(driver);
-		indexPage.searchItem("Blouse");
+		indexPage.searchItem(itemSearch);
 		resultSearchPage= new ResultSearchPage(driver);
-		Assert.assertTrue(resultSearchPage.itemIsFound(driver, "Blouse", "http://automationpractice.com/img/p/7/7-home_default.jpg", "$27.00"));
+		Assert.assertTrue(resultSearchPage.itemIsFound(driver, itemSearch, sourceImage, itemPrice));
 	}
 	
 	@AfterTest
@@ -53,6 +52,10 @@ public class TC04_SearchProduct {
 	}
 	
 	public void initialDataForTest() throws IOException {
+		data= new DataTC04_SearchProduct(PropertyUtility.getDataFileNameWithPath());
+		itemSearch = data.getItemSearchName();
+		sourceImage = data.getItemImageSource();
+		itemPrice = data.getItemPrice();
 		
 	}
 	

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import ChildPages.ContactUsPage;
 import ChildPages.IndexPage;
-import DataMapping.Data_TC02_TestSendARequest;
+import DataMapping.DataTC02_TestSendARequest;
 import customizedLibrary.EnviromentSetting;
 import customizedLibrary.PropertyUtility;
 
@@ -22,7 +22,7 @@ public class TC02_TestSendARequest {
 	IndexPage indexPage;
 	ContactUsPage contactUsPage;
 	
-	Data_TC02_TestSendARequest data;
+	DataTC02_TestSendARequest data;
 	
 	String subject;
 	String email;
@@ -63,7 +63,7 @@ public class TC02_TestSendARequest {
 	}
 	
 	public void initiateDataForTesting() throws IOException {
-		data = new Data_TC02_TestSendARequest(PropertyUtility.getDataFileNameWithPath());
+		data = new DataTC02_TestSendARequest(PropertyUtility.getDataFileNameWithPath());
 		subject = data.getSubject();
 		email = data.getEmail();
 		orderId = data.getOrderID();

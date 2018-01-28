@@ -4,11 +4,11 @@ import java.io.IOException;
 
 import customizedLibrary.ExcelUtility;
 
-public class Data_TC02_TestSendARequest {
+public class DataTC02_TestSendARequest {
 	ExcelUtility excelobj;
 	public final String SHEETNAME = "TC02_TestSendARequest";
 	
-	public Data_TC02_TestSendARequest(String fileName) throws IOException {
+	public DataTC02_TestSendARequest(String fileName) throws IOException {
 		excelobj =  new ExcelUtility(fileName, SHEETNAME);
 	}
 	
