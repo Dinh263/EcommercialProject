@@ -48,7 +48,7 @@ public class TC04_SearchProduct {
 	@AfterTest
 	public void closeBrowser() {
 		System.out.println("test done");
-		//driver.quit();
+		driver.quit();
 	}
 	
 	public void initialDataForTest() throws IOException {

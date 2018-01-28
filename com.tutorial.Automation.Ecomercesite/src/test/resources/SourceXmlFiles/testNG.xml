@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="allSuites">
+  <suite-files>
+    <suite-file path="TC01_TestLogin.xml" />
+    <suite-file path="TC02_TestSendARequest.xml" />
+    <suite-file path="TC03_TestSignUpAnAccount.xml" />
+    <suite-file path="TC04_SearchProduct.xml" />
+  </suite-files>
+</suite>

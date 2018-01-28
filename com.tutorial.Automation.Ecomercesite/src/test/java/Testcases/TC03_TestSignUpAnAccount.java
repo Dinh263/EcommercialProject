@@ -49,7 +49,7 @@ public class TC03_TestSignUpAnAccount  {
 	@AfterTest
 	public void closeBrowser() {
 		System.out.println("test done");
-		//driver.quit();
+		driver.quit();
 	}
 	
 	
