@@ -77,24 +77,6 @@ public class TestBase {
 		extent.flush();
 	}
 	
-	/*
-	 
-	 
-public String getScreenShot(String imageName) throws IOException{
-		
-		if(imageName.equals("")){
-			imageName = "blank";
-		}
-		File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		String imagelocation = System.getProperty("user.dir")+"/src/main/java/com/hybridFramework/screenshot/";
-		Calendar calendar = Calendar.getInstance();
-		SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
-		String actualImageName = imagelocation+imageName+"_"+formater.format(calendar.getTime())+".png";
-		File destFile = new File(actualImageName);
-		FileUtils.copyFile(image, destFile);
-		return actualImageName;
-	}
-	*/
 	public String getScreenShot(String imageName) throws IOException {
 		if(imageName.equals("")) {
 			imageName = "blank";
