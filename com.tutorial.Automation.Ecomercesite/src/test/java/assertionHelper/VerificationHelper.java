@@ -1,4 +1,4 @@
-package AssertionHelper;
+package assertionHelper;
 
 import org.openqa.selenium.WebElement;
 

@@ -1,4 +1,4 @@
-package Alert;
+package alert;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
