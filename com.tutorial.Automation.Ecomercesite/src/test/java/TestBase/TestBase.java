@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +18,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -24,6 +27,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import customizedLibrary.PropertyUtility;
 
 public class TestBase {
+	public static final Logger logger = Logger.getLogger(TestBase.class.getName());
 	public WebDriver driver;
 	public static ExtentReports extent;
 	public static ExtentTest test;
@@ -43,12 +47,17 @@ public class TestBase {
 			e.printStackTrace();
 		}
 	}
+	
+	public void startLogging() {
+		String log4jPath = "log4j.properties";
+		PropertyConfigurator.configure(log4jPath);
+	}
 		
 	/**
 	 * initiate browser for testing
 	 * @param browserName
 	 */
-	public void getBrowser(String browserName) {
+	public void initiateBrowser(String browserName) {
 		if(System.getProperty("os.name").contains("Window")) {
 			if(browserName.equalsIgnoreCase("firefox")) {
 				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/Drivers/geckodriver.exe");
@@ -84,6 +93,17 @@ public class TestBase {
 		} else if (result.getStatus() == ITestResult.STARTED) {
 			test.log(LogStatus.INFO, result.getName() + " test is started");
 		}
+	}
+	
+	@BeforeTest
+	public void launchBrowser() {
+		try {
+			startLogging();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
+		initiateBrowser("chrome");
 	}
 	
 	@AfterMethod()
