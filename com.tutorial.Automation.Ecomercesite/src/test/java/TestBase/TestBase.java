@@ -10,6 +10,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -42,7 +44,32 @@ public class TestBase {
 		}
 	}
 		
-	
+	/**
+	 * initiate browser for testing
+	 * @param browserName
+	 */
+	public void getBrowser(String browserName) {
+		if(System.getProperty("os.name").contains("Window")) {
+			if(browserName.equalsIgnoreCase("firefox")) {
+				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/Drivers/geckodriver.exe");
+				driver = new FirefoxDriver();
+			}
+			else if(browserName.equalsIgnoreCase("chrome")) {
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/Drivers/chromedriver.exe");
+				driver = new ChromeDriver();
+			}
+		}
+		else if(System.getProperty("os.name").contains("Mac")) {
+			if(browserName.equalsIgnoreCase("firefox")) {
+				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/Drivers/geckodriver");
+				driver = new FirefoxDriver();
+			}
+			else if(browserName.equalsIgnoreCase("chrome")) {
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/Drivers/chromedriver");
+				driver = new ChromeDriver();
+			}
+		}
+	}
 	
 	public void getresult(ITestResult result) throws IOException {
 		if (result.getStatus() == ITestResult.SUCCESS) {
